@@ -67,7 +67,7 @@ Board Algorithm::createBoardFromBoardState(BoardState bs)
 		{
 			unsigned cell_y = bs[i].second[0];
 			unsigned cell_x = bs[i].second[1];
-			b.addCell(Cell(cell_y, cell_x, Color::BLACK));
+			b.addCell(Cell(cell_y, cell_x));
 		}
 	}
 	return b;
@@ -85,12 +85,12 @@ int Algorithm::manhattanDistance(Cell c1, Cell c2)
 
 int Algorithm::moveCell(Cell *c, unsigned to_y, unsigned to_x)
 {
-	std::vector<std::vector<unsigned>> invalid = board->getInvalidCells();
+	std::vector<Cell> invalid = board->getInvalidCells();
 	std::vector<Cell> currentCells = board->getCells();
 
 	for (int i = 0; i < invalid.size(); i++)
 	{
-		if (to_y == invalid[i][0] && to_x == invalid[i][1])
+		if (to_y == invalid[i].getY() && to_x == invalid[i].getX())
 		{
 			//std::cout << "try to put on invalid place\n";
 			return INVALID_CELL;

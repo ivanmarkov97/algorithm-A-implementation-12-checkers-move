@@ -15,7 +15,7 @@ private:
 	unsigned height;
 
 	std::vector<Cell> cells;
-	std::vector<std::vector<unsigned>> invalid;
+	std::vector<Cell> invalid;
 
 public:
 	Board() {};
@@ -24,16 +24,16 @@ public:
 	unsigned getWidth();
 	unsigned getHeight();
 
-	int addCell(Cell c);
-	int removeCell(int index);
+	int addCell(Cell);
+	int removeCell(int);
 
 	int countCells();
-	void setInvalidCell(std::vector<unsigned> c);
+	void setInvalidCell(Cell);
 
-	int getIndexCellByYX(unsigned x, unsigned y);
-	Cell* getCellByIndex(int index);
+	int getIndexCellByYX(unsigned, unsigned);
+	Cell* getCellByIndex(int);
 	std::vector<Cell> getCells();
-	std::vector<std::vector<unsigned>> getInvalidCells();
+	std::vector<Cell> getInvalidCells();
 };
 
 #endif

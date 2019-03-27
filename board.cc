@@ -42,6 +42,6 @@ Cell* Board::getCellByIndex(int index) { return &this->cells[index]; };
 
 std::vector<Cell> Board::getCells() { return this->cells; };
 
-void Board::setInvalidCell(std::vector<unsigned> c) {this->invalid.push_back(c);};
+std::vector<Cell> Board::getInvalidCells() { return this->invalid; };
 
-std::vector<std::vector<unsigned>> Board::getInvalidCells() { return this->invalid; };
+void Board::setInvalidCell(Cell c) {this->invalid.push_back(c);};
